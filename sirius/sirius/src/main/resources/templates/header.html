@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+>
+<div th:insert="bootstrap-connect:: link"></div>
+<body>
+<div th:fragment="header-listener">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#">Sirius</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Catalog<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">My songs<span class="sr-only">(current)</span></a>
+                    </li>
+
+                </ul>
+
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" class="btn btn-success" value="Log out"/>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="header-singer">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#">Sirius</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">My songs <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Add song<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" class="btn btn-success" value="Log out"/>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<div th:fragment="header-guest">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#">Sirius</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="show-vac">
+
+                <form th:action="@{/login}" method="get">
+                    <input type="submit" class="btn btn-success mx-3" value="Log in"/>
+                </form>
+
+                <form th:action="@{/registration}" method="get">
+                    <input type="submit" class="btn btn-success" value="Sign up"/>
+                </form>
+            </div>
+
+
+        </div>
+    </nav>
+</div>
+</body>
+</html>
