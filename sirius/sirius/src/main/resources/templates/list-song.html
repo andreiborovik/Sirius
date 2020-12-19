@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Listener home</title>
+    <title>Songs</title>
     <div th:insert="bootstrap:: link"></div>
 </head>
 <body>
 
-<div th:insert="header :: header-listener"></div>
+<div th:insert="header :: header-singer"></div>
 
 <div class="container">
     <div th:if="${not #lists.isEmpty(songs)}">
@@ -30,12 +30,6 @@
             </div>
         </div>
     </div>
-
-    <div th:unless="${not #lists.isEmpty(songs)}">
-        <h3 class="mt-2">Your library of songs is empty.</h3>
-        <a class="btn btn-success" href="#" role="button">Add song!</a>
-    </div>
-
 </div>
 
 

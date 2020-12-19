@@ -16,6 +16,7 @@ public class Song {
 
     private String name;
     private LocalDate releaseDate;
+    private String album;
 
     @ManyToOne
     @JoinColumn(name = "singer_id")

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Song</title>
+    <div th:insert="bootstrap:: link"></div>
+</head>
+<body>
+
+<div th:insert="header :: header-singer"></div>
+
+<div class="container">
+    <h1 class="text-center my-sm-3">Song</h1>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-5">
+
+                <form th:action="@{addSong}" th:object="${song}" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" th:value="${song.name}"
+                               th:field="*{name}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Album</label>
+                        <input type="text" class="form-control" id="album" th:value="${song.album}"
+                               th:field="*{album}">
+                    </div>
+                    <div><input type="submit" class="btn btn-success" value="Save changes"/></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
