@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<div th:insert="bootstrap-connect:: link"></div>
+
+<head>
+    <title>Registration page</title>
+</head>
+<body>
+
+<div th:insert="header :: header-guest"></div>
+
+<div class="container">
+    <h2 class="my-sm-3">Registration</h2>
+    <p th:text="${message_exists}"></p>
+
+
+    <form th:action="@{/registration}" th:object="${user}" method="post">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" th:field="*{username}" aria-describedby="emailHelp"
+                   placeholder="Email"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Password"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <div th:each="role : ${roles}">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" th:field="*{role}" th:value="${role}" class="custom-control-input">
+                    <label class="custom-control-label" th:for="${#ids.prev('role')}" th:text="${role.toString().toLowerCase()}"></label>
+                </div>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Create account</button>
+    </form>
+</div>
+<div th:insert="bootstrap-connect:: script"></div>
+
+</body>
+</html>

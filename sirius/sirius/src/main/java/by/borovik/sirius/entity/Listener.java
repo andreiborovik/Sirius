@@ -1,25 +1,23 @@
 package by.borovik.sirius.entity;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
-@Data
 @NoArgsConstructor
-public class Singer {
+public class Listener {
 
-    public Singer(User user) {
+    public Listener(User user) {
         this.user=user;
     }
 
@@ -27,12 +25,9 @@ public class Singer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
-
     @OneToOne
     private User user;
 
-    @OneToMany(mappedBy = "singer")
-    private List<Song> songs=new ArrayList<>();
-
+    @ManyToMany(mappedBy = "listener_song")
+    private Set<Song> listenerSongs=new HashSet<>();
 }
