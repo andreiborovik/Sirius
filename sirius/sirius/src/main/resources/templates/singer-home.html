@@ -2,13 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Resume</title>
+    <title>Singer home</title>
     <div th:insert="bootstrap:: link"></div>
 </head>
 <body>
 
 <div th:insert="header :: header-singer"></div>
 
+<div class="container">
+    <div class="row row-cols-1 row-cols-nd-3">
+        <div class="col">
+            <div class="card-body border my-sm-3 h-100">
+                <h3 class="card-title">Singer info</h3>
+                <h4 class="card-subtitle mb-2 text-muted"
+                    th:if="${singer!=null}"
+                    th:text="${singer.name}"></h4>
+                <p th:if="${singer.genre!=null}">
+                    <strong>Genre: </strong>
+                    <span th:text="${singer.genre}"></span>
+                </p>
+                <a href="/singer/editInfo" class="btn btn-success">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

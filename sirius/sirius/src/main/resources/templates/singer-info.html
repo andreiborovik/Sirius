@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit info</title>
+    <div th:insert="bootstrap:: link"></div>
+</head>
+<body>
+
+<div th:insert="header :: header-singer"></div>
+
+<div class="container">
+    <h1 class="text-center my-sm-3">Personal info</h1>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-5">
+
+                <form th:action="@{editInfo}" th:object="${singer}" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" th:value="${singer.name}"
+                               th:field="*{name}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <input type="text" class="form-control" id="genre" th:value="${singer.genre}"
+                               th:field="*{genre}">
+                    </div>
+
+                    <div><input type="submit" class="btn btn-success" value="Save changes"/></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

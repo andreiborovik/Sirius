@@ -18,7 +18,7 @@ public class ListenerController {
     @GetMapping("/home")
     public String home(Model model) {
         Listener listener = authenticationService.getAuthenticatedListener();
-        model.addAttribute("songs", listener);
+        model.addAttribute("songs", listener.getListenerSongs());
         return "listener-home";
     }
 }

@@ -9,6 +9,31 @@
 
 <div th:insert="header :: header-listener"></div>
 
+<div class="container">
+    <div th:if="${not #lists.isEmpty(songs)}">
+        <div th:each="song : ${songs}">
+            <div class="card-body col mb-4 border my-sm-3">
+                <h3 class="card-title" th:text="${song.name}"></h3>
+
+                <p>
+                    <strong>Singer: </strong>
+                    <span th:text="${song.singer.name}"></span>
+                </p>
+                <p>
+                    <strong>Release date: </strong>
+                    <span th:text="${song.releaseDate}"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div th:unless="${not #lists.isEmpty(songs)}">
+        <h3 class="mt-2">Your library of songs is empty.</h3>
+        <a class="btn btn-success" href="#" role="button">Add song!</a>
+    </div>
+
+</div>
+
 
 </body>
 </html>
